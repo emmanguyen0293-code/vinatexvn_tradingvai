@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Báo cáo Nghiên cứu Thị trường – VinatexVN</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #0F1F3D;
+      --blue:   #1D4ED8;
+      --blue-lt:#EFF6FF;
+      --accent: #0EA5E9;
+      --text:   #1E293B;
+      --muted:  #64748B;
+      --border: #E2E8F0;
+      --bg:     #FFFFFF;
+      --bg-alt: #F8FAFC;
+      --radius: 8px;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+    }
+
+    /* ── Cover ── */
+    .cover {
+      background: var(--navy);
+      color: #fff;
+      padding: 80px 60px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .cover::after {
+      content: '';
+      position: absolute;
+      right: -80px; top: -80px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: rgba(14,165,233,.12);
+    }
+    .cover-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+    .cover h1 {
+      font-size: 38px;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      max-width: 600px;
+    }
+    .cover-sub {
+      font-size: 16px;
+      color: rgba(255,255,255,.65);
+      max-width: 520px;
+      margin-bottom: 48px;
+    }
+    .cover-meta {
+      display: flex;
+      gap: 40px;
+      border-top: 1px solid rgba(255,255,255,.12);
+      padding-top: 28px;
+    }
+    .cover-meta-item label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+      margin-bottom: 4px;
+    }
+    .cover-meta-item span { font-size: 14px; color: rgba(255,255,255,.85); }
+
+    /* ── TOC ── */
+    .toc-wrap {
+      background: var(--bg-alt);
+      border-bottom: 1px solid var(--border);
+      padding: 36px 60px;
+    }
+    .toc-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .toc {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 8px 40px;
+      list-style: none;
+    }
+    .toc a {
+      font-size: 13px;
+      color: var(--blue);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .toc a:hover { text-decoration: underline; }
+    .toc-num {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+      min-width: 20px;
+    }
+
+    /* ── Layout ── */
+    .content { max-width: 1060px; margin: 0 auto; padding: 64px 60px; }
+
+    /* ── Sections ── */
+    .section { margin-bottom: 72px; }
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin-bottom: 32px;
+      padding-bottom: 16px;
+      border-bottom: 2px solid var(--border);
+    }
+    .section-num {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .1em;
+      color: var(--accent);
+      text-transform: uppercase;
+    }
+    .section h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    /* ── Sub-section ── */
+    .sub-section { margin-top: 36px; }
+    .sub-section h3 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
+
+    /* ── Prose ── */
+    p { margin-bottom: 16px; color: var(--text); }
+    strong { font-weight: 600; color: var(--navy); }
+
+    /* ── Tables ── */
+    .table-wrap { overflow-x: auto; margin: 24px 0; border-radius: var(--radius); border: 1px solid var(--border); }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    thead tr { background: var(--navy); }
+    thead th {
+      padding: 13px 16px;
+      text-align: left;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .05em;
+      color: rgba(255,255,255,.88);
+      white-space: nowrap;
+    }
+    tbody tr { border-bottom: 1px solid var(--border); transition: background .15s; }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--bg-alt); }
+    tbody td {
+      padding: 13px 16px;
+      vertical-align: top;
+      line-height: 1.6;
+    }
+    tbody td:first-child { font-weight: 500; color: var(--navy); white-space: nowrap; }
+    td.number { text-align: right; font-variant-numeric: tabular-nums; }
+
+    /* ── Insight cards ── */
+    .insight-grid { display: grid; gap: 20px; margin-top: 20px; }
+    .insight-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      background: var(--bg);
+    }
+    .insight-card .ic-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--blue);
+      background: var(--blue-lt);
+      border-radius: 4px;
+      padding: 3px 8px;
+      margin-bottom: 12px;
+    }
+    .insight-card p { margin: 0; }
+    .insight-card .ic-value {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+      font-style: italic;
+    }
+
+    /* ── Persona cards ── */
+    .persona-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; margin-top: 20px; }
+    .persona-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .persona-card .pc-header {
+      background: var(--navy);
+      padding: 20px 24px;
+      color: #fff;
+    }
+    .persona-card .pc-header h4 { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+    .persona-card .pc-header span { font-size: 12px; color: rgba(255,255,255,.55); }
+    .persona-card .pc-body { padding: 20px 24px; }
+    .persona-row { display: flex; gap: 10px; margin-bottom: 12px; font-size: 13px; }
+    .persona-row:last-child { margin-bottom: 0; }
+    .persona-row label { font-weight: 600; color: var(--navy); min-width: 80px; flex-shrink: 0; }
+    .persona-row span { color: var(--text); }
+
+    /* ── Highlight boxes ── */
+    .highlight-box {
+      background: var(--blue-lt);
+      border-left: 3px solid var(--blue);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px 22px;
+      margin: 24px 0;
+    }
+    .highlight-box p { margin: 0; font-size: 14px; }
+
+    /* ── Numbered list ── */
+    .num-list { list-style: none; margin: 16px 0; }
+    .num-list li {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 14px;
+      align-items: flex-start;
+    }
+    .num-list li .nl-num {
+      flex-shrink: 0;
+      width: 28px; height: 28px;
+      background: var(--navy);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .num-list li .nl-text { padding-top: 3px; font-size: 14px; }
+
+    /* ── SWOT grid ── */
+    .swot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--border); border-radius: var(--radius); overflow: hidden; margin-top: 20px; border: 1px solid var(--border); }
+    .swot-cell { padding: 24px; background: var(--bg); }
+    .swot-cell.s { border-top: 3px solid #10B981; }
+    .swot-cell.w { border-top: 3px solid #EF4444; }
+    .swot-cell.o { border-top: 3px solid #3B82F6; }
+    .swot-cell.t { border-top: 3px solid #F59E0B; }
+    .swot-cell h4 { font-size: 13px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; margin-bottom: 10px; }
+    .swot-cell.s h4 { color: #10B981; }
+    .swot-cell.w h4 { color: #EF4444; }
+    .swot-cell.o h4 { color: #3B82F6; }
+    .swot-cell.t h4 { color: #F59E0B; }
+    .swot-cell p { margin: 0; font-size: 13.5px; line-height: 1.6; }
+
+    /* ── TAM/SAM/SOM visual ── */
+    .tsm-wrap { display: flex; gap: 0; margin: 24px 0; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--border); }
+    .tsm-cell { flex: 1; padding: 28px 24px; text-align: center; }
+    .tsm-cell:not(:last-child) { border-right: 1px solid var(--border); }
+    .tsm-cell.tam { background: #EFF6FF; }
+    .tsm-cell.sam { background: #DBEAFE; }
+    .tsm-cell.som { background: #BFDBFE; }
+    .tsm-cell .tsm-label { font-size: 12px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; }
+    .tsm-cell .tsm-usd { font-size: 22px; font-weight: 700; color: var(--navy); }
+    .tsm-cell .tsm-vnd { font-size: 13px; color: var(--muted); margin-top: 4px; }
+    .tsm-cell .tsm-desc { font-size: 12px; color: var(--muted); margin-top: 10px; line-height: 1.5; }
+
+    /* ── Strategic implications ── */
+    .implication-list { display: grid; gap: 16px; margin-top: 20px; }
+    .implication-item {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      padding: 22px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--bg);
+    }
+    .implication-item:first-child { border-color: var(--accent); }
+    .imp-icon {
+      flex-shrink: 0;
+      width: 36px; height: 36px;
+      background: var(--navy);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+    }
+    .imp-body { flex: 1; }
+    .imp-body p { margin: 0; font-size: 14px; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border);
+      padding: 32px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    footer strong { color: var(--navy); }
+
+    /* ── Print ── */
+    @media print {
+      .cover { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      thead tr { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    }
+
+    @media (max-width: 700px) {
+      .cover { padding: 48px 24px 40px; }
+      .cover h1 { font-size: 26px; }
+      .toc-wrap { padding: 24px; }
+      .content { padding: 40px 24px; }
+      footer { flex-direction: column; gap: 8px; text-align: center; }
+      .persona-grid { grid-template-columns: 1fr; }
+      .swot-grid { grid-template-columns: 1fr; }
+      .tsm-wrap { flex-direction: column; }
+      .tsm-cell:not(:last-child) { border-right: none; border-bottom: 1px solid var(--border); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Cover -->
+<div class="cover">
+  <div class="cover-label">Nghiên cứu thị trường</div>
+  <h1>Báo cáo Nghiên cứu Thị trường VinatexVN</h1>
+  <p class="cover-sub">Phân tích toàn diện môi trường kinh doanh, đối thủ cạnh tranh, khách hàng mục tiêu và định hướng chiến lược cho mô hình trading vải tại Việt Nam.</p>
+  <div class="cover-meta">
+    <div class="cover-meta-item">
+      <label>Công ty</label>
+      <span>VinatexVN</span>
+    </div>
+    <div class="cover-meta-item">
+      <label>Phạm vi</label>
+      <span>Thị trường nội địa Việt Nam</span>
+    </div>
+    <div class="cover-meta-item">
+      <label>Năm</label>
+      <span>2026</span>
+    </div>
+    <div class="cover-meta-item">
+      <label>Mô hình</label>
+      <span>Trading vải – Nhập khẩu &amp; Phân phối</span>
+    </div>
+  </div>
+</div>
+
+<!-- Table of Contents -->
+<div class="toc-wrap">
+  <div class="toc-title">Mục lục</div>
+  <ul class="toc">
+    <li><a href="#overview"><span class="toc-num">01</span>Tổng quan</a></li>
+    <li><a href="#pestel"><span class="toc-num">02</span>Phân tích PESTEL</a></li>
+    <li><a href="#porter"><span class="toc-num">03</span>Porter's 5 Forces</a></li>
+    <li><a href="#tam"><span class="toc-num">04</span>TAM / SAM / SOM</a></li>
+    <li><a href="#trends"><span class="toc-num">05</span>Xu hướng thị trường</a></li>
+    <li><a href="#segments"><span class="toc-num">06</span>Phân khúc khách hàng</a></li>
+    <li><a href="#persona"><span class="toc-num">07</span>Persona mục tiêu</a></li>
+    <li><a href="#insights"><span class="toc-num">08</span>Insight khách hàng</a></li>
+    <li><a href="#journey"><span class="toc-num">09</span>Hành trình khách hàng</a></li>
+    <li><a href="#competitors"><span class="toc-num">10</span>Nghiên cứu đối thủ</a></li>
+    <li><a href="#positioning"><span class="toc-num">11</span>Định vị cạnh tranh</a></li>
+    <li><a href="#swot"><span class="toc-num">12</span>SWOT &amp; Ma trận TOWS</a></li>
+    <li><a href="#implications"><span class="toc-num">13</span>Hàm ý chiến lược</a></li>
+    <li><a href="#conclusion"><span class="toc-num">14</span>Kết luận</a></li>
+  </ul>
+</div>
+
+<!-- Main content -->
+<div class="content">
+
+  <!-- 01 Overview -->
+  <div class="section" id="overview">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2>Tổng quan</h2>
+    </div>
+    <p>Báo cáo này tổng hợp toàn bộ nghiên cứu đã thực hiện cho VinatexVN trong bối cảnh doanh nghiệp hoạt động ở mô hình <strong>trading vải</strong>: nhập khẩu vải và phân phối tại thị trường Việt Nam, không trực tiếp sản xuất vải. Trọng tâm phân tích gồm môi trường vĩ mô, mức độ cạnh tranh ngành, quy mô thị trường, xu hướng, khách hàng mục tiêu, insight, hành trình khách hàng, đối thủ cạnh tranh, định vị cạnh tranh, SWOT và TOWS để làm nền cho chiến lược thương hiệu và tăng trưởng kinh doanh.</p>
+    <div class="highlight-box">
+      <p>Thị trường vải may mặc tại Việt Nam đang chịu tác động đồng thời từ ba lực chính: <strong>áp lực cạnh tranh giá</strong> từ nguồn nhập khẩu, <strong>yêu cầu xanh hóa</strong> và minh bạch chuỗi cung ứng ngày càng cao, cùng với <strong>xu hướng số hóa</strong> vận hành bán hàng B2B.</p>
+    </div>
+  </div>
+
+  <!-- 02 PESTEL -->
+  <div class="section" id="pestel">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2>PESTEL – Ngành phân phối vải may mặc</h2>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Yếu tố</th>
+            <th>Thực trạng tại Việt Nam</th>
+            <th>Mức độ</th>
+            <th>Cơ hội / Thách thức cho VinatexVN</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Political</td>
+            <td>Chính phủ thúc đẩy công nghiệp hỗ trợ, xuất khẩu, chuyển đổi xanh và nâng cao nội địa hóa trong dệt may; ngành chịu ảnh hưởng từ định hướng thương mại quốc tế và yêu cầu bền vững của đối tác xuất khẩu.</td>
+            <td>Cao</td>
+            <td>Cơ hội xây vai trò nhà phân phối đáp ứng tiêu chuẩn xanh; thách thức là phải theo kịp thay đổi chính sách và yêu cầu từ chuỗi cung ứng xuất khẩu.</td>
+          </tr>
+          <tr>
+            <td>Economic</td>
+            <td>Lạm phát 2026 dự báo quanh 3,5%–4,1%; chi phí đầu vào, vận tải và năng lượng còn biến động; sức mua hồi phục nhưng không đồng đều giữa các nhóm khách hàng.</td>
+            <td>Cao</td>
+            <td>Cơ hội cho nhà phân phối có giá cạnh tranh, tồn kho linh hoạt; thách thức là biên lợi nhuận bị ép bởi chi phí logistics và tỷ giá.</td>
+          </tr>
+          <tr>
+            <td>Social</td>
+            <td>Người tiêu dùng Việt và các nhãn hàng ngày càng quan tâm đến chất lượng, nguồn gốc, tính an toàn và yếu tố "xanh" của vật liệu.</td>
+            <td>Trung bình – Cao</td>
+            <td>Cơ hội phát triển danh mục vải xanh, an toàn, đa tính năng; thách thức là nhu cầu phân hóa nhanh.</td>
+          </tr>
+          <tr>
+            <td>Technology</td>
+            <td>Số hóa, ERP, CRM, IoT, AI và hệ thống theo dõi đơn hàng đang thay đổi cách ngành dệt may vận hành và phục vụ khách hàng B2B.</td>
+            <td>Cao</td>
+            <td>Cơ hội nâng hiệu quả bán hàng, quản trị tồn kho, minh bạch đơn hàng; thách thức là doanh nghiệp chậm số hóa sẽ yếu thế.</td>
+          </tr>
+          <tr>
+            <td>Environmental</td>
+            <td>Áp lực giảm phát thải, tiết kiệm nước, năng lượng và dùng nguyên liệu tái chế ngày càng rõ; xanh hóa trở thành yêu cầu thị trường.</td>
+            <td>Cao</td>
+            <td>Cơ hội xây danh mục vải tái chế, hữu cơ, tiết kiệm tài nguyên; thách thức là chi phí chọn nguồn đạt chuẩn cao hơn.</td>
+          </tr>
+          <tr>
+            <td>Legal</td>
+            <td>Hàng dệt may lưu thông tại Việt Nam phải tuân thủ quy định nhãn hàng hóa và nhiều sản phẩm phải chứng nhận hợp quy theo QCVN 01:2017/BCT.</td>
+            <td>Cao</td>
+            <td>Cơ hội tạo niềm tin nhờ chuẩn hóa tuân thủ; thách thức là rủi ro xử phạt hoặc chậm lưu thông nếu hồ sơ không đầy đủ.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sub-section">
+      <h3>Top 3 yếu tố tác động mạnh nhất</h3>
+      <ul class="num-list">
+        <li>
+          <div class="nl-num">1</div>
+          <div class="nl-text"><strong>Legal:</strong> hàng hóa trading phải lưu thông đúng chuẩn nhãn mác và hợp quy, sai sót pháp lý tác động trực tiếp đến doanh thu và uy tín.</div>
+        </li>
+        <li>
+          <div class="nl-num">2</div>
+          <div class="nl-text"><strong>Technology:</strong> số hóa ảnh hưởng trực tiếp đến tốc độ báo giá, quản lý tồn kho, phản hồi khách hàng và minh bạch vận hành B2B.</div>
+        </li>
+        <li>
+          <div class="nl-num">3</div>
+          <div class="nl-text"><strong>Environmental:</strong> xanh hóa đang trở thành điều kiện tiếp cận nhóm khách hàng xuất khẩu, nhãn hàng lớn và khách hàng tiêu chuẩn cao.</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 03 Porter's 5 Forces -->
+  <div class="section" id="porter">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2>Porter's 5 Forces</h2>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Lực lượng</th>
+            <th>Đánh giá</th>
+            <th>Thực trạng</th>
+            <th>Hàm ý cho VinatexVN</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Cạnh tranh nội bộ ngành</td>
+            <td>Cao</td>
+            <td>Nhiều doanh nghiệp cùng phục vụ nhà máy may, thương hiệu nội địa và khách hàng dự án; cạnh tranh ngày càng khốc liệt khi đơn hàng phân mảnh hơn và áp lực giá tăng lên.</td>
+            <td>Không thể cạnh tranh thuần giá; cần khác biệt bằng danh mục, tốc độ và dịch vụ kỹ thuật.</td>
+          </tr>
+          <tr>
+            <td>Nguy cơ gia nhập mới</td>
+            <td>Trung bình</td>
+            <td>Trading vải có rào cản thấp hơn sản xuất, nhưng để có quy mô, hệ thống nguồn hàng ổn định, công nợ và quan hệ khách hàng dài hạn vẫn cần năng lực đáng kể.</td>
+            <td>Cần tạo rào cản mềm bằng dữ liệu, dịch vụ và danh mục chọn lọc.</td>
+          </tr>
+          <tr>
+            <td>Áp lực từ nhà cung cấp</td>
+            <td>Cao</td>
+            <td>Phụ thuộc lớn vào nguồn nhập khẩu và biến động giá, logistics, quy tắc xuất xứ; Việt Nam chưa tự chủ hoàn toàn nguồn vải cho toàn chuỗi.</td>
+            <td>Cần đa nguồn nhập khẩu và xây quan hệ chiến lược với nhà cung cấp.</td>
+          </tr>
+          <tr>
+            <td>Áp lực từ khách hàng</td>
+            <td>Cao</td>
+            <td>Khách hàng B2B có nhiều lựa chọn, ngày càng yêu cầu báo giá nhanh, mẫu đa dạng, truy xuất nguồn gốc và điều khoản linh hoạt.</td>
+            <td>Phải tăng giá trị bằng tốc độ, minh bạch và dịch vụ tư vấn.</td>
+          </tr>
+          <tr>
+            <td>Sản phẩm thay thế</td>
+            <td>Trung bình</td>
+            <td>Nguy cơ đến từ vật liệu mới, vải tái chế, sợi công nghệ và các giải pháp thay thế vải truyền thống trong một số phân khúc.</td>
+            <td>Cần chủ động mở danh mục vật liệu mới thay vì phòng thủ thụ động.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="highlight-box">
+      <p>Ngành trading vải tại Việt Nam có mức hấp dẫn <strong>trung bình – thấp</strong> nếu chỉ xét cạnh tranh thuần túy, nhưng vẫn hấp dẫn cho doanh nghiệp có năng lực chọn nguồn, quản trị tồn kho, dịch vụ kỹ thuật và định vị khác biệt.</p>
+    </div>
+  </div>
+
+  <!-- 04 TAM/SAM/SOM -->
+  <div class="section" id="tam">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2>Quy mô thị trường – TAM / SAM / SOM</h2>
+    </div>
+    <p>Phương pháp ước tính sử dụng quy mô thị trường dệt may nội địa Việt Nam khoảng 5–5,5 tỷ USD làm nền TAM, sau đó thu hẹp về SAM theo phần thị trường mà một doanh nghiệp trading vải có thể phục vụ tốt, và SOM theo phần có thể chiếm lĩnh thực tế trong 3–5 năm.</p>
+    <div class="tsm-wrap">
+      <div class="tsm-cell tam">
+        <div class="tsm-label">TAM</div>
+        <div class="tsm-usd">5,25 tỷ USD</div>
+        <div class="tsm-vnd">≈ 131,25 nghìn tỷ VND</div>
+        <div class="tsm-desc">Quy mô toàn bộ thị trường nội địa liên quan đến may mặc và nguyên liệu phân phối.</div>
+      </div>
+      <div class="tsm-cell sam">
+        <div class="tsm-label">SAM</div>
+        <div class="tsm-usd">2,36 tỷ USD</div>
+        <div class="tsm-vnd">≈ 59,06 nghìn tỷ VND</div>
+        <div class="tsm-desc">45% TAM – phần phù hợp với mô hình trading vải B2B có hệ thống phân phối hiện hữu.</div>
+      </div>
+      <div class="tsm-cell som">
+        <div class="tsm-label">SOM</div>
+        <div class="tsm-usd">94,5 triệu USD</div>
+        <div class="tsm-vnd">≈ 2,36 nghìn tỷ VND</div>
+        <div class="tsm-desc">4% SAM – mục tiêu thực tế trong 3–5 năm với chiến lược tập trung và cạnh tranh có chọn lọc.</div>
+      </div>
+    </div>
+    <p>Tốc độ tăng trưởng xuất khẩu dệt may được dự báo khoảng <strong>6–7%/năm</strong>, trong khi thị trường nội địa vẫn còn dư địa nhờ hàng Việt chiếm khoảng 55–60% thị phần trong nước. SAM và SOM có thể tăng nhanh hơn TAM nếu VinatexVN tập trung vào các phân khúc tăng tốc như vải xanh, vải đa tính năng và khách hàng B2B tiêu chuẩn cao.</p>
+  </div>
+
+  <!-- 05 Trends -->
+  <div class="section" id="trends">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2>Xu hướng thị trường</h2>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Xu hướng</th>
+            <th>Loại</th>
+            <th>Mô tả</th>
+            <th>Tác động / Cơ hội cho VinatexVN</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Xanh hóa chuỗi cung ứng</td>
+            <td>Macro</td>
+            <td>Doanh nghiệp dệt may và chuỗi cung ứng bị thúc đẩy chuyển sang tiết kiệm năng lượng, nước, giảm phát thải và dùng vật liệu tái chế.</td>
+            <td>Mở cơ hội xây danh mục vải xanh và vật liệu có câu chuyện bền vững.</td>
+          </tr>
+          <tr>
+            <td>Số hóa bán hàng và vận hành</td>
+            <td>Macro</td>
+            <td>ERP, CRM, IoT, dữ liệu chuỗi cung ứng và theo dõi tiến độ đang trở thành tiêu chuẩn mới trong phục vụ B2B.</td>
+            <td>Cơ hội tối ưu báo giá, tồn kho, dịch vụ và tăng độ tin cậy.</td>
+          </tr>
+          <tr>
+            <td>Minh bạch nguồn gốc và tuân thủ</td>
+            <td>Macro</td>
+            <td>Khách hàng cần thông tin rõ về thành phần, truy xuất, nhãn mác và chứng nhận hợp quy.</td>
+            <td>Cơ hội tạo niềm tin và khác biệt trong nhóm khách hàng tiêu chuẩn cao.</td>
+          </tr>
+          <tr>
+            <td>Nhu cầu vật liệu đa tính năng</td>
+            <td>Micro</td>
+            <td>Thị trường ưu tiên vải nhẹ hơn, thoáng hơn, bền hơn và phù hợp nhiều ứng dụng hơn.</td>
+            <td>Cơ hội mở SKU chuyên biệt cho thời trang, đồng phục, gia dụng và dự án.</td>
+          </tr>
+          <tr>
+            <td>Hành vi mua dựa trên dữ liệu</td>
+            <td>Micro</td>
+            <td>Người mua B2B kỳ vọng báo giá nhanh, thông số rõ, mẫu số hóa và theo dõi tiến độ minh bạch.</td>
+            <td>Cơ hội xây catalog online, quy trình sample và cổng đặt hàng B2B.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="highlight-box">
+      <p>Các xu hướng nổi bật nhất cho VinatexVN là <strong>tiêu dùng xanh</strong>, <strong>đơn hàng ngắn – linh hoạt</strong> và <strong>số hóa chuỗi cung ứng</strong> — ba động lực đang thay đổi cách khách hàng chọn nhà cung cấp vải tại Việt Nam và chưa bão hòa hoàn toàn.</p>
+    </div>
+  </div>
+
+  <!-- 06 Segments -->
+  <div class="section" id="segments">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2>Phân khúc khách hàng mục tiêu</h2>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Phân khúc</th>
+            <th>Nhân khẩu học</th>
+            <th>Địa lý</th>
+            <th>Tâm lý</th>
+            <th>Hành vi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Nhà máy may / ODM / OEM quy mô vừa và lớn</td>
+            <td>Người quyết định 30–55 tuổi, quản lý thu mua, supply chain.</td>
+            <td>TP.HCM, Bình Dương, Đồng Nai, Long An, Hà Nội, Bắc Ninh, Hải Phòng, Nam Định.</td>
+            <td>Ưu tiên ổn định nguồn cung, chất lượng đồng đều, chứng từ rõ, giao hàng đúng hạn.</td>
+            <td>Mua định kỳ, tần suất cao, trung thành nếu nhà cung cấp đáng tin.</td>
+          </tr>
+          <tr>
+            <td>Thương hiệu thời trang nội địa</td>
+            <td>Founder, brand manager, merchandiser 25–45 tuổi, học vấn cao, thu nhập khá.</td>
+            <td>Chủ yếu tại TP.HCM, Hà Nội, Đà Nẵng.</td>
+            <td>Tìm chất liệu có câu chuyện, theo trend, xanh, khác biệt hóa thương hiệu.</td>
+            <td>Mua theo mùa/bộ sưu tập, cần mẫu nhanh, đổi mới liên tục.</td>
+          </tr>
+          <tr>
+            <td>Khách hàng dệt may gia dụng / Contract Textiles</td>
+            <td>Người mua B2B 30–55 tuổi trong nội thất, khách sạn, dự án.</td>
+            <td>Đô thị lớn, khu du lịch, cụm dự án thương mại.</td>
+            <td>Chú trọng độ bền, an toàn, tính đồng bộ và khả năng đáp ứng theo dự án.</td>
+            <td>Mua theo dự án, đơn hàng lớn, chu kỳ dài hơn nhưng giá trị cao.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sub-section">
+      <h3>3 phân khúc ưu tiên nhất</h3>
+      <ul class="num-list">
+        <li>
+          <div class="nl-num">1</div>
+          <div class="nl-text"><strong>Nhà máy may / ODM / OEM quy mô vừa và lớn</strong> – có doanh số nền tảng, tần suất mua cao và phù hợp năng lực trading B2B.</div>
+        </li>
+        <li>
+          <div class="nl-num">2</div>
+          <div class="nl-text"><strong>Thương hiệu thời trang nội địa</strong> – tăng trưởng nhanh và cần đổi mới chất liệu liên tục, tạo biên giá trị cao hơn.</div>
+        </li>
+        <li>
+          <div class="nl-num">3</div>
+          <div class="nl-text"><strong>Contract Textiles</strong> – nhu cầu ổn định, đơn hàng dự án lớn và ít lệ thuộc vào cạnh tranh giá ngắn hạn.</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 07 Personas -->
+  <div class="section" id="persona">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2>Persona mục tiêu</h2>
+    </div>
+    <div class="persona-grid">
+      <div class="persona-card">
+        <div class="pc-header">
+          <h4>Trần Minh Khang</h4>
+          <span>Giám đốc thu mua / Supply Chain Manager</span>
+        </div>
+        <div class="pc-body">
+          <div class="persona-row"><label>Tuổi</label><span>42 tuổi, Bình Dương</span></div>
+          <div class="persona-row"><label>Vai trò</label><span>Phụ trách mua nguyên liệu cho nhà máy may xuất khẩu quy mô vừa–lớn</span></div>
+          <div class="persona-row"><label>Mục tiêu</label><span>Đảm bảo nguyên liệu đúng chuẩn, đúng tiến độ, giảm rủi ro đứt gãy sản xuất</span></div>
+          <div class="persona-row"><label>Nỗi lo</label><span>Trễ lead time, sai spec, hồ sơ kỹ thuật thiếu, nhà cung cấp phản hồi chậm</span></div>
+          <div class="persona-row"><label>Kênh</label><span>Email, Zalo, điện thoại, hội chợ ngành, giới thiệu từ đối tác</span></div>
+        </div>
+      </div>
+      <div class="persona-card">
+        <div class="pc-header">
+          <h4>Nguyễn Thảo Vy</h4>
+          <span>Founder thương hiệu thời trang nội địa</span>
+        </div>
+        <div class="pc-body">
+          <div class="persona-row"><label>Tuổi</label><span>31 tuổi, TP.HCM</span></div>
+          <div class="persona-row"><label>Vai trò</label><span>Điều hành thương hiệu thời trang nữ nội địa</span></div>
+          <div class="persona-row"><label>Mục tiêu</label><span>Xây thương hiệu có cá tính riêng, ra bộ sưu tập nhanh hơn đối thủ</span></div>
+          <div class="persona-row"><label>Nỗi lo</label><span>Chọn sai chất liệu, MOQ cao, lead time chậm, thiếu chất liệu có câu chuyện thương hiệu</span></div>
+          <div class="persona-row"><label>Kênh</label><span>Instagram, Facebook, TikTok, Pinterest, website, triển lãm ngành</span></div>
+        </div>
+      </div>
+      <div class="persona-card">
+        <div class="pc-header">
+          <h4>Lê Hoàng Nam</h4>
+          <span>Quản lý thu mua dự án Contract Textiles</span>
+        </div>
+        <div class="pc-body">
+          <div class="persona-row"><label>Tuổi</label><span>38 tuổi, TP.HCM / Hà Nội</span></div>
+          <div class="persona-row"><label>Vai trò</label><span>Công ty nội thất / khách sạn / resort</span></div>
+          <div class="persona-row"><label>Mục tiêu</label><span>Đảm bảo vật liệu đạt chuẩn kỹ thuật, bền, đồng bộ và tối ưu ngân sách dự án</span></div>
+          <div class="persona-row"><label>Nỗi lo</label><span>Giao hàng chậm, vật liệu xuống cấp nhanh, thiếu chứng nhận kỹ thuật</span></div>
+          <div class="persona-row"><label>Kênh</label><span>Email, catalogue kỹ thuật, website, hội chợ, gặp trực tiếp</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 08 Insights -->
+  <div class="section" id="insights">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2>Insight khách hàng</h2>
+    </div>
+    <div class="insight-grid">
+      <div class="insight-card">
+        <div class="ic-tag">Nhà máy may</div>
+        <p>Nhà máy may muốn nguồn vải ổn định và đúng chuẩn nhưng luôn phải "chạy" theo tiến độ vì một lỗi nguyên liệu nhỏ có thể làm trễ cả chuyền sản xuất và ảnh hưởng uy tín với khách hàng quốc tế. Họ không mua vải đơn thuần — <strong>họ mua sự an tâm vận hành.</strong></p>
+        <p class="ic-value">→ Cho phép VinatexVN định vị như đối tác giảm rủi ro, không chỉ là nhà cung cấp.</p>
+      </div>
+      <div class="insight-card">
+        <div class="ic-tag">Thương hiệu thời trang</div>
+        <p>Thương hiệu thời trang nội địa muốn chất liệu độc đáo để kể câu chuyện thương hiệu nhưng ngại thử cái mới vì chỉ cần chọn sai vải là lỡ mùa bán hàng và mất bản sắc bộ sưu tập. Họ cần sáng tạo nhưng <strong>sợ trả giá cho sai lầm thử nghiệm.</strong></p>
+        <p class="ic-value">→ Mở ra thông điệp đồng sáng tạo, phát triển mẫu, tư vấn trend và giảm rủi ro sample.</p>
+      </div>
+      <div class="insight-card">
+        <div class="ic-tag">Contract Textiles</div>
+        <p>Khách hàng contract textiles muốn vật liệu đẹp và bền nhưng luôn phải cân bằng giữa tiêu chuẩn kỹ thuật, ngân sách và tiến độ nên <strong>họ ưu tiên nhà cung cấp đáng tin hơn là rẻ nhất.</strong> Họ mua sự ổn định cho cả dự án, không chỉ mua vật liệu.</p>
+        <p class="ic-value">→ Chiến lược nhấn vào độ tin cậy, hồ sơ kỹ thuật và hậu mãi dự án.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 09 Customer Journey -->
+  <div class="section" id="journey">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <h2>Hành trình khách hàng</h2>
+    </div>
+    <p style="margin-bottom:20px;">Hành trình được map theo Persona <strong>Trần Minh Khang</strong> – nhóm ra quyết định B2B trọng tâm trong ngành trading vải.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Giai đoạn</th>
+            <th>Hành động</th>
+            <th>Suy nghĩ</th>
+            <th>Cảm xúc</th>
+            <th>Touchpoints</th>
+            <th>Pain points</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Awareness</td>
+            <td>Tìm nhà cung cấp mới khi có đơn hàng mới, thiếu mã vải, biến động giá hoặc rủi ro trễ hàng.</td>
+            <td>"Có nguồn nào giao ổn và không làm trễ chuyền không?"</td>
+            <td>Áp lực, cảnh giác</td>
+            <td>Email, Zalo, hội chợ, website, giới thiệu đối tác</td>
+            <td>Thiếu thời gian lọc, thông tin chung chung, khó đánh giá năng lực thật</td>
+          </tr>
+          <tr>
+            <td>Consideration</td>
+            <td>So sánh báo giá, MOQ, lead time, chứng nhận, sample và hồ sơ kỹ thuật.</td>
+            <td>"Giá có tốt thật không, mẫu có ổn định không?"</td>
+            <td>Thận trọng, nghi ngờ</td>
+            <td>Catalogue, sample swatch, gọi điện, họp online, audit</td>
+            <td>Sample không phản ánh hàng thật, phản hồi chậm, thiếu hồ sơ</td>
+          </tr>
+          <tr>
+            <td>Purchase</td>
+            <td>Đàm phán, chốt PO, theo dõi tiến độ, QC và chứng từ.</td>
+            <td>"Đặt rồi thì phải chắc, sai là ảnh hưởng cả dây chuyền."</td>
+            <td>Căng thẳng nhưng kỳ vọng</td>
+            <td>PO, hợp đồng, QC report, logistics update</td>
+            <td>Trễ giao, sai màu, sai spec, chi phí ẩn</td>
+          </tr>
+          <tr>
+            <td>Retention</td>
+            <td>Đánh giá chất lượng lô hàng, độ ổn định giữa các batch và xử lý sự cố.</td>
+            <td>"Nhà cung cấp này giúp mình đỡ việc hay tạo thêm việc?"</td>
+            <td>Tin tưởng dần hoặc thất vọng nhanh</td>
+            <td>Hotline, account manager, review định kỳ</td>
+            <td>Nếu hỗ trợ kém, khách sẽ chuyển nguồn khác rất nhanh</td>
+          </tr>
+          <tr>
+            <td>Advocacy</td>
+            <td>Giới thiệu cho đồng nghiệp, ưu tiên tái mua dài hạn nếu trải nghiệm ổn định.</td>
+            <td>"Có thể giới thiệu mà không sợ mất uy tín."</td>
+            <td>An tâm, hài lòng</td>
+            <td>Referral nội bộ, case study, quan hệ dài hạn</td>
+            <td>Trải nghiệm không nhất quán sẽ ngăn khách giới thiệu</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sub-section">
+      <h3>Top 3 điểm can thiệp quan trọng</h3>
+      <ul class="num-list">
+        <li><div class="nl-num">1</div><div class="nl-text"><strong>Awareness → Consideration:</strong> cần tạo niềm tin sớm bằng năng lực cung ứng, sample và chứng nhận.</div></li>
+        <li><div class="nl-num">2</div><div class="nl-text"><strong>Consideration → Purchase:</strong> cần chuẩn hóa bộ hồ sơ kỹ thuật, phản hồi nhanh và chính sách thử lô.</div></li>
+        <li><div class="nl-num">3</div><div class="nl-text"><strong>Retention:</strong> cần hệ thống account management, cảnh báo tồn kho và cam kết chất lượng theo lô.</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 10 Competitors -->
+  <div class="section" id="competitors">
+    <div class="section-header">
+      <span class="section-num">10</span>
+      <h2>Nghiên cứu đối thủ cạnh tranh</h2>
+    </div>
+    <div class="sub-section" style="margin-top:0">
+      <h3>Mapping đối thủ</h3>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Nhóm</th>
+            <th>Tên / Cụm đối thủ</th>
+            <th>Vai trò cạnh tranh</th>
+            <th>Quy mô / Dấu hiệu thị trường</th>
+            <th>Điểm mạnh nổi bật</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Trực tiếp</td>
+            <td>Navitex</td>
+            <td>Trading vải và phụ liệu B2B</td>
+            <td>Đơn vị cung cấp vải và phụ liệu uy tín tại Việt Nam</td>
+            <td>Mạng lưới B2B, danh mục không chỉ vải mà còn phụ liệu</td>
+          </tr>
+          <tr>
+            <td>Trực tiếp</td>
+            <td>Công ty nhập khẩu vải Trung Quốc</td>
+            <td>Trading vải giá rẻ, đa mẫu</td>
+            <td>Vải nhập khẩu chiếm ~64% nhu cầu vải sử dụng tại Việt Nam; Trung Quốc là nguồn cung lớn nhất</td>
+            <td>Giá rẻ, đa dạng mẫu, chuỗi cung ứng lớn, tốc độ nguồn hàng cao</td>
+          </tr>
+          <tr>
+            <td>Trực tiếp</td>
+            <td>Công ty nhập khẩu vải Ấn Độ / Bangladesh</td>
+            <td>Trading vải giá cạnh tranh</td>
+            <td>Nguồn cung dệt may mạnh trong khu vực, đáp ứng phân khúc giá cạnh tranh</td>
+            <td>Linh hoạt, cạnh tranh giá, phù hợp phân khúc nhạy giá</td>
+          </tr>
+          <tr>
+            <td>Gián tiếp</td>
+            <td>Nhà sản xuất bán trực tiếp</td>
+            <td>Cắt trung gian trading</td>
+            <td>Một số nhà máy nội địa hoặc FDI có thể bán trực tiếp khi đủ quy mô</td>
+            <td>Tự chủ nguồn hàng, kiểm soát chất lượng đầu vào tốt hơn</td>
+          </tr>
+          <tr>
+            <td>Tiềm năng</td>
+            <td>Sourcing agent / nền tảng tìm nguồn hàng</td>
+            <td>Tăng minh bạch nguồn cung</td>
+            <td>Kênh sourcing và nền tảng tìm nhà cung ứng ngày càng phổ biến trong khu vực</td>
+            <td>Làm giảm lợi thế thông tin của trader truyền thống</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="sub-section">
+      <h3>Phân tích 3 đối thủ chính</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Khía cạnh</th>
+              <th>Navitex</th>
+              <th>Nhập khẩu Trung Quốc</th>
+              <th>Nhập khẩu Ấn Độ / Bangladesh</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Định vị & thông điệp</td>
+              <td>Nhà cung cấp vải và phụ liệu uy tín cho ngành dệt may Việt Nam, nhấn vào năng lực phục vụ B2B và danh mục tổng thể.</td>
+              <td>Nguồn hàng giá rẻ, đa mẫu, dễ nhập, phù hợp kinh doanh nhanh và khách hàng nhạy giá.</td>
+              <td>Nguồn cung giá cạnh tranh, linh hoạt, phù hợp nhóm tìm phương án thay thế Trung Quốc hoặc tối ưu chi phí.</td>
+            </tr>
+            <tr>
+              <td>Điểm mạnh</td>
+              <td>Hình ảnh chất lượng ổn định hơn nhóm trader giá rẻ; có thể bán kèm phụ liệu tăng tiện lợi.</td>
+              <td>Mạnh nhất ở giá, độ rộng danh mục, nguồn hàng phong phú, tốc độ quay vòng cao và mạng lưới cung ứng lớn.</td>
+              <td>Lợi thế về chi phí và khả năng thay thế một phần nguồn cung khác trong các phân khúc trung cấp.</td>
+            </tr>
+            <tr>
+              <td>Điểm yếu</td>
+              <td>Dấu ấn digital và định vị thương hiệu chưa nổi bật; chưa thấy lợi thế rõ ở phân khúc xanh hoặc cao cấp.</td>
+              <td>Thường bị gắn với cạnh tranh giá; rủi ro về ổn định chất lượng và thiếu câu chuyện thương hiệu ở cấp B2B cao cấp.</td>
+              <td>Nhận diện tại thị trường Việt Nam chưa mạnh; chưa rõ lợi thế nổi bật ngoài giá và linh hoạt nguồn cung.</td>
+            </tr>
+            <tr>
+              <td>Hàm ý cho VinatexVN</td>
+              <td>Có thể cạnh tranh bằng định vị rõ ràng hơn ở "vải chuẩn cho B2B tiêu chuẩn cao".</td>
+              <td>Không nên đối đầu thuần giá; nên tránh vùng đại trà giá rẻ.</td>
+              <td>Có thể tận dụng khoảng trống định vị nếu xây danh mục rõ hơn, nhất là phân khúc xanh và chất lượng ổn định.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 11 Positioning -->
+  <div class="section" id="positioning">
+    <div class="section-header">
+      <span class="section-num">11</span>
+      <h2>Định vị cạnh tranh &amp; White Space</h2>
+    </div>
+    <p>Hai trục quan trọng nhất với ngành trading vải là <strong>Giá (thấp → cao)</strong> và <strong>Mức độ giá trị (đại trà → cao cấp)</strong>, vì đây là hai biến chi phối phần lớn lựa chọn nhà cung cấp của khách hàng B2B.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Vị trí</th>
+            <th>Mô tả</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Giá thấp – Đại trà</td>
+            <td>Bị chiếm mạnh bởi các công ty nhập khẩu vải Trung Quốc và một phần Ấn Độ/Bangladesh, nơi lợi thế chính là giá rẻ và đa dạng mẫu.</td>
+          </tr>
+          <tr>
+            <td>Vùng trung tính</td>
+            <td>Navitex nằm gần vùng trung, thiên về chất lượng ổn định hơn nhưng chưa thật sự chiếm lĩnh rõ một "lãnh địa" khác biệt mạnh.</td>
+          </tr>
+          <tr>
+            <td>Cao cấp – Giá trị cao</td>
+            <td>Vùng trống tương đối, đặc biệt ở nhánh <strong>vải xanh + cao cấp + B2B</strong>, nơi chưa thấy đối thủ nào chiếm lĩnh rõ ràng.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="highlight-box">
+      <p><strong>White Space chính:</strong> Vải xanh / vải đa tính năng / chuẩn B2B cao cấp là khoảng trống chiến lược khả thi cho VinatexVN vì nhóm đối thủ hiện tại hoặc tập trung vào giá rẻ, hoặc chưa có định vị đủ mạnh ở phân khúc giá trị cao. Đây là cơ hội thực sự vì xu hướng xanh và minh bạch chuỗi cung ứng đang tăng tốc, trong khi khách hàng B2B tiêu chuẩn cao sẵn sàng trả thêm cho sự ổn định, chứng từ và khả năng đáp ứng chuẩn kỹ thuật.</p>
+    </div>
+  </div>
+
+  <!-- 12 SWOT & TOWS -->
+  <div class="section" id="swot">
+    <div class="section-header">
+      <span class="section-num">12</span>
+      <h2>SWOT &amp; Ma trận TOWS</h2>
+    </div>
+    <div class="swot-grid">
+      <div class="swot-cell s">
+        <h4>Strengths – Điểm mạnh</h4>
+        <p>Linh hoạt chọn nguồn vì không bị ràng buộc bởi sản xuất; có thể xây danh mục nhập khẩu đa dạng và phản ứng nhanh với xu hướng; phù hợp đầu tư số hóa và mô hình dịch vụ B2B giá trị gia tăng.</p>
+      </div>
+      <div class="swot-cell w">
+        <h4>Weaknesses – Điểm yếu</h4>
+        <p>Không tự chủ nguyên liệu; dễ bị tác động bởi biến động giá, logistics và tỷ giá; chưa có định vị thương hiệu đủ mạnh trong phân khúc trading vải tiêu chuẩn cao.</p>
+      </div>
+      <div class="swot-cell o">
+        <h4>Opportunities – Cơ hội</h4>
+        <p>Xu hướng xanh tăng tốc; thị trường nội địa còn phụ thuộc lớn vào vải nhập khẩu; khách hàng B2B ngày càng cần minh bạch, tốc độ và nguồn hàng linh hoạt; mảng contract textiles còn dư địa tăng trưởng.</p>
+      </div>
+      <div class="swot-cell t">
+        <h4>Threats – Thách thức</h4>
+        <p>Cạnh tranh giá từ trader nhập khẩu; khách hàng dễ chuyển đổi nhà cung cấp; rủi ro pháp lý, xuất xứ, logistics và biến động kinh tế vĩ mô.</p>
+      </div>
+    </div>
+    <div class="sub-section">
+      <h3>Ma trận TOWS</h3>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Nhóm chiến lược</th>
+              <th>Định hướng hành động</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>SO – Tăng trưởng</td>
+              <td>Dùng sự linh hoạt chọn nguồn và năng lực danh mục để xây line-up vải xanh, vải đa tính năng, vải dự án nhằm khai thác xu hướng xanh và khoảng trống cao cấp B2B.</td>
+            </tr>
+            <tr>
+              <td>ST – Cạnh tranh</td>
+              <td>Dùng số hóa, truy xuất nguồn gốc và chuẩn hóa dịch vụ để tránh cạnh tranh thuần giá và tăng switching cost cho khách hàng B2B.</td>
+            </tr>
+            <tr>
+              <td>WO – Cải thiện</td>
+              <td>Khắc phục điểm yếu thương hiệu bằng nội dung B2B, case study, catalog kỹ thuật và chứng nhận để tận dụng tăng trưởng của nhóm khách hàng nội địa và xuất khẩu tiêu chuẩn cao.</td>
+            </tr>
+            <tr>
+              <td>WT – Phòng thủ</td>
+              <td>Giảm phụ thuộc nguồn nhập khẩu bằng chiến lược đa nguồn, kiểm soát công nợ, chuẩn hóa pháp lý và chọn phân khúc ít nhạy giá hơn.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- 13 Strategic Implications -->
+  <div class="section" id="implications">
+    <div class="section-header">
+      <span class="section-num">13</span>
+      <h2>3 Hàm ý chiến lược quan trọng nhất</h2>
+    </div>
+    <div class="implication-list">
+      <div class="implication-item">
+        <div class="imp-icon">⚡</div>
+        <div class="imp-body">
+          <p><strong>Không nên định vị VinatexVN ở vùng trading giá rẻ đại trà</strong>, vì khu vực này đã bị lấp đầy bởi nguồn nhập khẩu Trung Quốc và một phần Ấn Độ/Bangladesh với lợi thế quy mô và chi phí vượt trội.</p>
+        </div>
+      </div>
+      <div class="implication-item">
+        <div class="imp-icon">🎯</div>
+        <div class="imp-body">
+          <p><strong>Khoảng trống hấp dẫn nhất là vải xanh / vải đa tính năng / chuẩn B2B cao cấp</strong>, nơi nhu cầu đang tăng nhanh nhưng chưa có đối thủ nào chiếm lĩnh mạnh bằng một định vị rõ ràng.</p>
+        </div>
+      </div>
+      <div class="implication-item">
+        <div class="imp-icon">🏗️</div>
+        <div class="imp-body">
+          <p><strong>Năng lực cạnh tranh bền vững của VinatexVN nên đến từ dịch vụ và hệ thống</strong> — gồm tốc độ phản hồi, tính minh bạch, chuẩn kỹ thuật, truy xuất nguồn gốc và quản trị account B2B — thay vì chỉ đến từ giá nhập khẩu.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 14 Conclusion -->
+  <div class="section" id="conclusion">
+    <div class="section-header">
+      <span class="section-num">14</span>
+      <h2>Kết luận</h2>
+    </div>
+    <p>Toàn bộ nghiên cứu cho thấy VinatexVN có cơ hội rõ ràng để xây dựng vị thế riêng trong ngành trading vải tại Việt Nam nếu tránh cạnh tranh trực diện ở phân khúc giá rẻ đại trà và tập trung vào vùng giá trị cao hơn.</p>
+    <p>Hướng đi khả thi nhất là trở thành <strong>nhà phân phối vải B2B có năng lực chọn nguồn quốc tế, danh mục xanh và đa tính năng</strong>, cùng hệ thống dịch vụ đủ mạnh để giải quyết bài toán vận hành, niềm tin và tốc độ ra quyết định cho khách hàng doanh nghiệp.</p>
+    <div class="highlight-box">
+      <p>VinatexVN không cần là người bán vải rẻ nhất — VinatexVN cần là <strong>đối tác đáng tin nhất</strong> cho các doanh nghiệp dệt may đang tăng trưởng và nâng chuẩn.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<footer>
+  <div><strong>VinatexVN</strong> – Báo cáo Nghiên cứu Thị trường</div>
+  <div>Tài liệu nội bộ · 2026 · Bảo mật</div>
+</footer>
+
+</body>
+</html>
